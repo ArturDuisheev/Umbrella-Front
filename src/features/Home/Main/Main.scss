@@ -1,0 +1,159 @@
+@use '../../../styles/mixins' as *;
+
+.hero-section {
+  &-banner {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 200px;
+    padding-bottom: 240px;
+    background-position: 0 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include md {
+      min-height: 534px;
+    }
+
+
+    @include xs {
+      padding-top: 40px;
+      padding-bottom: 120px;
+    }
+
+    .background {
+      position: absolute;
+      top: 150px;
+      left: 65vw;
+
+      @include md {
+        top: 200px;
+        left: 55vw;
+      }
+
+      @include sm {
+        top: 290px;
+        left: 65vw;
+      }
+
+      @include xxs {
+        top: 280px;
+        left: 55vw;
+      }
+    }
+
+    &-wrapper {
+      height: 100%;
+
+      @include xl {
+        background-position: center bottom;
+        background-size: 450px 550px;
+      }
+
+      @include md {
+        background-position: center bottom;
+        padding-top: 0;
+        background-size: 420px 520px;
+      }
+
+      @include xs {
+        background-position: center top 250px;
+        padding-top: 87px;
+        background-size: 180px 285px;
+      }
+
+      &-title {
+        font-weight: 800;
+        font-size: 76px;
+        line-height: 115%;
+        max-width: 1009px;
+        text-align: left;
+        margin-bottom: 20px;
+
+        @include xxl {
+          font-size: 72px;
+          max-width: 900px;
+        }
+
+        @include xl {
+          font-size: 68px;
+          max-width: 850px;
+        }
+
+        @include lg {
+          font-size: 58px;
+          max-width: 690px;
+        }
+
+        @include md {
+            max-width: 550px;
+          font-size: 45px;
+        }
+
+        @include sm {
+          font-size: 28px;
+          margin-bottom: 20px;
+          width: 445px;
+
+          br {
+            display: none;
+          }
+        }
+
+        @media (max-width: 420px) {
+          font-size: 24px;
+          max-width: 78%;
+          line-height: 1.3;
+          br {
+            display: none;
+          }
+        }
+      }
+
+      &-subtitle {
+        font-size: 32px;
+        max-width: 850px;
+
+        @include xxl {
+          font-size: 28px;
+          max-width: 750px;
+        }
+
+        @include lg {
+          font-size: 26px;
+        }
+
+        @include md {
+          font-size: 24px;
+          width: 370px;
+        }
+
+        @include sm {
+          font-size: 16px;
+
+          br {
+            display: none;
+          }
+        }
+
+        @media (max-width: 420px) {
+          font-size: 14px;
+          width: 328px;
+        }
+      }
+
+      &-link {
+        display: none;
+
+        @include lg {
+          margin-top: 50px;
+          display: block;
+        }
+
+        @include md {
+          margin-top: 22px;
+          display: block;
+        }
+      }
+    }
+  }
+}

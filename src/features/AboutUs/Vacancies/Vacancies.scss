@@ -1,0 +1,76 @@
+@use '../../../styles/mixins' as *;
+@use '../../../styles/variables' as *;
+
+.vacancies {
+  margin-top: 200px;
+  margin-bottom: 200px;
+
+  @include xl {
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+
+  @include lg {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  @include md {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  &-title {
+    font-weight: 600;
+    font-size: 72px;
+    line-height: 115%;
+    color: #000;
+    margin-bottom: 50px;
+
+    @include xl {
+      font-size: 62px;
+      margin-bottom: 35px;
+    }
+
+    @include lg {
+      font-size: 52px;
+      margin-bottom: 30px;
+    }
+
+    @include md {
+      font-size: 42px;
+      margin-bottom: 25px;
+    }
+
+    @include sm {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    @include xs {
+      font-size: 24px;
+    }
+  }
+
+  &-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(550px, 750px));
+    gap: 20px;
+    @media (max-width: 1100px) {
+      grid-template-columns: repeat(1, minmax(320px, 100%));
+    }
+  }
+
+  .no-vacancies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12rem; /* equivalent to h-48 */
+  }
+
+  .no-vacancies-text {
+    text-align: center;
+    font-size: 1.125rem; /* equivalent to text-lg */
+    color: #6b7280; /* equivalent to text-gray-500 */
+  }
+}

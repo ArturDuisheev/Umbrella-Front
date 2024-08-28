@@ -1,0 +1,126 @@
+@use '../../../../../styles/mixins' as *;
+@use '../../../../../styles/variables' as *;
+
+.founder-card {
+  max-width: 32%;
+
+  @include xl {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+
+    &-img-box {
+      max-width: 494px;
+      height: 567px;
+
+      @include sm {
+        height: 467px;
+      }
+
+      @include xs {
+        height: 350px;
+      }
+
+      &-img {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        object-fit: cover;
+      }
+    }
+
+    &-information {
+      font-size: 24px;
+      line-height: 115%;
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: 4px 4px 4px 0;
+      padding: 32px;
+      max-width: 445px;
+      height: 176px;
+      backdrop-filter: blur(34px);
+      background: rgba(20, 70, 123, 0.5);
+
+      @include xxl {
+        font-size: 20px;
+      }
+
+      @include sm {
+        font-size: 14px;
+        height: 136px;
+      }
+
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: -20px;
+        left: 30px;
+        background: url('../../../../../../public/assets/about-us/founders/quotation-mark.svg')
+          no-repeat;
+        width: 47px;
+        height: 41px;
+      }
+
+      &-text {
+        color: #f1f2f8;
+      }
+    }
+  }
+
+  &-personal-information {
+    margin-top: 20px;
+    padding-right: 20px;
+    @include sm {
+      margin-top: 12px;
+    }
+
+    &-name {
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 115%;
+      color: $neutral-01;
+
+      @include xxl {
+        font-size: 44px;
+      }
+
+      @include xl {
+        font-size: 36px;
+      }
+
+      @include sm {
+        font-size: 24px;
+      }
+    }
+
+    &-company {
+      margin-top: 20px;
+      font-size: 24px;
+      line-height: 115%;
+      color: $neutral-03;
+
+      @include xxl {
+        font-size: 22px;
+      }
+
+      @include md {
+        font-size: 20px;
+      }
+
+      @include sm {
+        margin-top: 6px;
+        margin-bottom: 2px;
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.formPage {
+  background: url('../../../public/assets/footer/img.jpg') center no-repeat;
+  background-size: cover;
+  padding-bottom: 50px;
+  color: $primary-10;
+
+  .top {
+    border-bottom: 1px solid $primary-03;
+    padding-bottom: 120px;
+    padding-top: 120px;
+
+    @include lg {
+      border: none;
+      padding-bottom: 80px;
+    }
+  }
+
+  .bottom {
+    padding-top: 80px;
+
+    @include lg {
+      padding-top: 0;
+    }
+  }
+}

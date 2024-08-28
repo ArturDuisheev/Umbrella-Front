@@ -1,0 +1,119 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.banner {
+  height: 950px;
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-position: right 65%;
+  @media(max-width: 1015px){
+    background-size: cover;
+  }
+
+  @include lg {
+    height: 1275px;
+  }
+
+  @include sm {
+    height: 750px;
+  }
+
+  &-wrapper {
+    position: relative;
+    z-index: 1;
+
+    &-row {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding-top: 140px;
+      @include xl {
+        padding-top: 200px;
+      }
+
+      @include lg {
+        padding-top: 150px;
+        left: 30px;
+        right: 30px;
+        padding-right: 0;
+      }
+
+      @include sm {
+        padding-top: 120px;
+      }
+
+      @include xs {
+        padding-top: 120px;
+      }
+
+      &-title {
+        font-weight: 800;
+        font-size: 76px;
+        max-width: 1010px;
+
+        @include xxl {
+          font-size: 68px;
+          max-width: 900px;
+        }
+
+        @include xl {
+          font-size: 60px;
+        }
+
+        @include lg {
+          font-size: 58px;
+        }
+
+        @include md {
+          font-size: 50px;
+        }
+
+        @include sm {
+          font-size: 32px;
+        }
+
+        @include xs {
+          font-size: 24px;
+        }
+      }
+
+      &-subtitle {
+        font-size: 28px;
+        margin-top: 30px;
+        max-width: 850px;
+        padding-right: 30px;
+
+        @include xxl {
+          font-size: 28px;
+          max-width: 690px;
+          border-radius: 15px;
+        }
+
+        @include xl {
+          font-size: 26px;
+          max-width: 490px;
+        }
+
+        @include lg {
+          max-width: 100%;
+          margin-top: 12px;
+          //background-color: rgba(12, 12, 12, 0.6);
+          //padding: 15px;
+        }
+
+        @include md {
+          font-size: 20px;
+          padding-right: 0;
+        }
+
+        @include sm {
+          font-size: 16px;
+        }
+
+        @include xs {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

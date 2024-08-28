@@ -1,0 +1,144 @@
+@use '../../../../../styles/mixins' as *;
+@use '../../../../../styles/variables' as *;
+
+.services-list {
+  width: 49%;
+  border-right: 2px solid rgba(241, 242, 248, 0.5);
+
+  @include md {
+    width: 100%;
+    border-right: none;
+  }
+
+  &-content {
+    list-style: none;
+    font-size: 32px;
+
+    @include xl {
+      font-size: 28px;
+    }
+
+    @include lg {
+      font-size: 24px;
+    }
+
+    @include md {
+      font-size: 20px;
+    }
+
+    @include sm {
+      font-size: 14px;
+    }
+
+    &-title {
+      color: rgb(241, 242, 248);
+      font-size: 48px;
+      line-height: 115%;
+      margin-bottom: 30px;
+      font-weight: 500;
+      border-bottom: 2px solid rgba(241, 242, 248, 0.5);
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      align-content: center;
+      padding-bottom: 18px;
+
+      @include xl {
+        font-size: 44px;
+      }
+
+      @include lg {
+        font-size: 34px;
+      }
+
+      @include md {
+        font-size: 30px;
+        gap: 12px;
+      }
+
+      @include sm {
+        font-size: 24px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+      }
+
+      &-arrow {
+        width: 40px;
+        height: 55px;
+
+        @include xl {
+          width: 35px;
+          height: 45px;
+        }
+
+        @include lg {
+          width: 30px;
+          height: 35px;
+        }
+
+        @include md {
+          width: 25px;
+          height: 30px;
+        }
+
+        @include sm {
+          width: 20px;
+          height: 25px;
+        }
+
+        @include xs {
+          width: 18px;
+          height: 19px;
+        }
+      }
+    }
+
+    &-item {
+      padding: 15px 20px 0 0;
+
+      &-first {
+        color: #0aabb9;
+      }
+
+      &:hover .services-list-content-item-link:hover {
+        color: $primary-04;
+
+        .services-list-content-item-link-img {
+          transform: rotate(-360deg);
+          transition: transform 1.5s;
+        }
+      }
+
+      &-link {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        gap: 20px;
+
+
+        @include sm {
+          gap: 10px;
+        }
+
+        &-img {
+          max-width: 36px;
+          height: 43px;
+
+          @include sm {
+            max-width: 26px;
+            height: 33px;
+          }
+
+          @include xs {
+            max-width: 24px;
+            height: 28px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.link-primary {
+  color: #0aabb9;
+}

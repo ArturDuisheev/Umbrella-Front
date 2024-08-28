@@ -1,0 +1,86 @@
+@use '../../../../../styles/mixins' as *;
+@use '../../../../../styles/variables' as *;
+
+.vacancy-card {
+  background: $primary-08;
+  border: 2px solid $primary-05;
+  border-radius: 6px;
+  padding: 40px;
+
+  @include xl {
+  }
+
+  @include lg {
+    max-width: 100%;
+  }
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    &-content {
+      color: $neutral-01;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 115%;
+
+      @include md {
+        font-size: 20px;
+      }
+
+      @include xs {
+        font-size: 14px;
+      }
+
+      &-title {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 115%;
+        margin-bottom: 20px;
+
+        @include md {
+          font-size: 24px;
+        }
+
+        @include sm {
+          font-size: 20px;
+        }
+
+        @include xs {
+          font-size: 16px;
+        }
+      }
+
+      &-text {
+        line-height: 115%;
+      }
+
+      &-list {
+        margin-left: 30px;
+        line-height: 115%;
+        margin-bottom: auto;
+      }
+    }
+
+    &-link {
+      font-size: 24px;
+      color: $primary-01;
+      border: 2px solid $primary-02;
+      border-radius: 4px;
+      padding: 16px 24px;
+      cursor: pointer;
+      align-self: flex-end;
+      margin-top: 25px;
+
+      @include md {
+        font-size: 20px;
+      }
+
+      @include xs {
+        font-size: 14px;
+      }
+    }
+  }
+}

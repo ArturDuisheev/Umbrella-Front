@@ -1,0 +1,163 @@
+@use '../../../../../styles/mixins' as *;
+@use '../../../../../styles/variables' as *;
+
+.work-start-steps {
+  margin-bottom: 200px;
+
+  @include xl {
+    margin-bottom: 150px;
+  }
+
+  @include lg {
+    margin-bottom: 170px;
+  }
+
+  @include sm {
+    margin-bottom: 50px;
+  }
+
+  &-title {
+    font-weight: 700; // Увеличен вес шрифта для выделения
+    font-size: 56px; // Увеличен размер шрифта
+    text-align: center;
+    color: $neutral-01;
+
+    @include xxl {
+      font-size: 50px;
+    }
+
+    @include xl {
+      font-size: 44px;
+    }
+
+    @include lg {
+      font-size: 40px;
+    }
+
+    @include md {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    @include sm {
+      font-size: 32px;
+    }
+
+    @include xs {
+      font-size: 28px;
+    }
+  }
+
+  &-description {
+    font-size: 16px; // Уменьшен размер шрифта для описания
+    color: $neutral-02; // Цвет описания (можно изменить при необходимости)
+    line-height: 1.5; // Увеличен межстрочный интервал для лучшей читаемости
+    text-align: center; // Выравнивание текста по центру (опционально)
+
+    @include xxl {
+      font-size: 15px;
+    }
+
+    @include xl {
+      font-size: 14px;
+    }
+
+    @include lg {
+      font-size: 13px;
+    }
+
+    @include md {
+      font-size: 12px;
+    }
+
+    @include sm {
+      font-size: 11px;
+    }
+
+    @include xs {
+      font-size: 10px;
+    }
+  }
+
+  &-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Используйте auto-fit для адаптивности
+    gap: 30px; // Увеличен отступ между карточками
+    margin-top: 50px;
+    justify-content: center; // Центрирование карточек по горизонтали
+    max-width: 100%; // Убедитесь, что контейнер не выходит за пределы экрана
+    padding: 0; // Убедитесь, что внутренние отступы не мешают выравниванию
+
+    @include md {
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    @include sm {
+      margin-top: 20px;
+      gap: 15px;
+    }
+
+    @include xs {
+      margin-top: 15px;
+      gap: 10px;
+    }
+  }
+
+  .start {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+
+    @include xl {
+      margin-top: 150px;
+    }
+
+    @include lg {
+      margin-top: 100px;
+    }
+
+    @include sm {
+      margin-top: 50px;
+    }
+
+    &-title {
+      max-width: 1120px;
+      font-weight: 600;
+      text-align: center;
+      font-size: 48px;
+      color: $primary-01;
+      padding-bottom: 50px;
+      background: url('../../../../../../public/assets/service/arrow-up.svg') center bottom
+        no-repeat;
+      background-size: 48px;
+
+      @include xxl {
+        font-size: 44px;
+      }
+
+      @include xl {
+        font-size: 40px;
+      }
+
+      @include lg {
+        font-size: 36px;
+      }
+
+      @include md {
+        font-size: 32px;
+      }
+
+      @include sm {
+        font-size: 28px;
+        background-size: 30px;
+        padding-bottom: 35px;
+      }
+
+      @include xs {
+        font-size: 24px;
+      }
+    }
+  }
+}

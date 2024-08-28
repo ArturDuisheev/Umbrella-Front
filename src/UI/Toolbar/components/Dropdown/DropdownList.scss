@@ -1,0 +1,34 @@
+@use '../../../../styles/mixins' as *;
+@use '../../../../styles/variables' as *;
+
+.dropdown-lists {
+  max-width: 100%;
+
+  @include lg {
+    max-width: 100%;
+  }
+
+  &-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &-item {
+      font-size: 22px;
+      transition: color 0.5s;
+
+      &:hover {
+        color: $secondary-03;
+      }
+
+      @include md {
+        font-size: 18px;
+      }
+
+      @include sm {
+        font-size: 14px;
+      }
+    }
+  }
+}

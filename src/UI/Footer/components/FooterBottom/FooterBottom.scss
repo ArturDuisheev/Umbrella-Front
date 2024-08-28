@@ -1,0 +1,152 @@
+@use '../../../../styles/mixins' as *;
+@use '../../../../styles/variables' as *;
+
+.footerBottom {
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include lg {
+      flex-direction: column;
+    }
+
+    &-logo {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      img{
+        @include xs {
+          max-width: 120px;
+          height: 100px;
+        }
+      }
+
+      &-img {
+        max-width: 150px;
+        height: 160px;
+      }
+      @include lg {
+        flex-direction: column;
+      }
+      //@include sm {
+      //  width: 110px;
+      //  height: 120px;
+      //}
+
+      &-rights {
+        font-size: 16px;
+        display: block;
+        max-width: 300px;
+        margin-top: 30px;
+        font-weight: 400;
+
+        @include sm {
+          font-size: 12px;
+          margin-top: 12px;
+        }
+      }
+
+    }
+
+    &-nav {
+      @include lg {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      &-lists {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 70px;
+        row-gap: 36px;
+        list-style: none;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 115%;
+        color: $primary-10;
+
+        @media (max-width: 425px) {
+          grid-template-columns: repeat(1, 1fr);
+          row-gap: 20px;
+        }
+
+        @include xl {
+          font-size: 22px;
+        }
+
+        @include lg {
+          font-size: 20px;
+        }
+
+        @include md {
+          font-size: 18px;
+        }
+
+        @include sm {
+          font-size: 18px;
+        }
+
+        @include xs {
+          font-size: 14px;
+        }
+
+        &-list {
+          transition: color 0.5s;
+
+          &:hover {
+            color: $secondary-03;
+          }
+        }
+      }
+    }
+
+    &-social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      @include sm {
+        flex-direction: row;
+        margin-top: 24px;
+      }
+
+      @include xs {
+        gap: 0;
+      }
+
+      .link {
+        display: block;
+        padding: 30px;
+        transition: all 0.4s ease;
+
+
+        &:hover {
+          scale: 1.05;
+        }
+      }
+
+      .whatsapp {
+        background: url('../../../../../public/assets/footer/whats-app.svg') center no-repeat;
+        @include xs {
+          background-size: 28.33px;
+        }
+      }
+
+
+      .instagram {
+        background: url('../../../../../public/assets/footer/instagram.svg') center no-repeat;
+        @include xs {
+          background-size: 28.33px;
+        }
+      }
+
+      .facebook {
+        background: url('../../../../../public/assets/footer/facebook.svg') center no-repeat;
+        @include xs {
+          background-size: 28.33px;
+        }
+      }
+    }
+  }
+}

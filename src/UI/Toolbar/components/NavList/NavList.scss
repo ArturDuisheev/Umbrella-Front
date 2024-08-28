@@ -1,0 +1,162 @@
+@use '../../../../styles/mixins' as *;
+@use '../../../../styles/variables' as *;
+
+.nav {
+  display: block;
+  .service-list-mobile {
+    overflow: scroll;
+    top: 0;
+    left: 0;
+    color: #000000 !important;
+    display: block;
+    background-color: #ffff;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: anim 1s ease;
+    transition: all 0.5s linear;
+
+    &-hidden {
+      transform: translateX(100%);
+      transition: all 0.5s linear;
+    }
+  }
+
+  .lists {
+    display: flex;
+    justify-content: space-between;
+    gap: 55px;
+    list-style: none;
+
+    @include xxl {
+      gap: 50px;
+    }
+
+    @include xl {
+      gap: 35px;
+    }
+
+    @include lg {
+      gap: 20px;
+      flex-direction: column;
+    }
+
+    .list {
+      cursor: pointer;
+      transition: color 0.5s;
+      font-size: 24px;
+
+      &:hover {
+        color: $secondary-03;
+      }
+
+      @include xs {
+        font-size: 16px;
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 110px;
+        left: 0;
+        right: 0;
+        background: $primary-10;
+        color: $neutral-01;
+        padding: 50px 50px;
+        animation-name: dropdown-animation;
+        animation-duration: 1s;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        @media (max-width: 950px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 560px) {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .dropdown-section {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+
+        @include lg {
+          top: 0;
+          right: 0;
+          height: 100%;
+        }
+
+        &-title {
+          font-weight: 600;
+          font-size: 32px;
+
+          @include xl {
+            font-size: 30px;
+          }
+
+          @include lg {
+            font-size: 28px;
+            margin-top: 50px;
+          }
+
+          @include md {
+            font-size: 24px;
+          }
+
+          @include sm {
+            font-size: 18px;
+          }
+
+          @include xs {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .service {
+      display: flex;
+      align-items: center;
+
+      @include lg {
+        justify-content: space-between;
+        padding-right: 40px;
+      }
+
+      .arrow {
+        width: 28px;
+        height: 28px;
+
+        @include xxl {
+          width: 24px;
+          height: 24px;
+        }
+        @include md {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes dropdown-animation {
+  0% {
+    transition: 1s;
+    transform-origin: top;
+    transform: translateY(-60%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes anim {
+  0% {
+    transform: translateX(140vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}

@@ -1,0 +1,36 @@
+@use '../../../styles/mixins' as *;
+@use '../../../styles/variables' as *;
+
+.about-us-main {
+  &-banner-xxl {
+    display: block; // Default display for XXL screens
+
+    @include lg {
+      display: none; // Hide on large screens and below
+    }
+
+    @include md {
+      display: none; // Hide on medium screens and below
+    }
+  }
+
+  &-banner-lg {
+    display: none; // Hidden by default
+
+    @include lg {
+      display: block; // Show on large screens
+    }
+
+    @include md {
+      display: none; // Hide on medium screens and below
+    }
+  }
+
+  &-banner-md {
+    display: none; // Hidden by default
+
+    @include md {
+      display: block; // Show on medium screens and below
+    }
+  }
+}
