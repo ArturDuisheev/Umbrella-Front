@@ -26,18 +26,12 @@
       left: 65vw;
 
       @include md {
-        top: 200px;
-        left: 55vw;
-      }
-
-      @include sm {
-        top: 290px;
-        left: 65vw;
-      }
-
-      @include xxs {
-        top: 280px;
-        left: 55vw;
+        top: auto;
+        bottom: 15px;
+        left: auto;
+        right: 15px;
+        width: 180px;
+        height: 235px;
       }
     }
 
