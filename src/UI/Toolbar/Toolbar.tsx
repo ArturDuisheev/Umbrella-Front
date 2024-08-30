@@ -108,7 +108,7 @@ const Toolbar = () => {
                   <img
                     src="/assets/toolbar/close-menu.svg"
                     alt="Close"
-                    onClick={() => setOpen(false)}
+                    onClick={() => setOpen(!open)}
                   />
                 ) : (
                   <img src="/assets/toolbar/menu.svg" alt="Menu" onClick={() => setOpen(true)} />
