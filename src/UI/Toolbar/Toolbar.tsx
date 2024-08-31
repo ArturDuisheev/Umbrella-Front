@@ -33,7 +33,7 @@ const Toolbar = () => {
   const scroll = useScrollPosition();
   const isMobile = useMediaQuery(992);
 
-  const handleCloseServices = () => {
+    const handleCloseServices = () => {
     setOpenServices(false);
   };
 
