@@ -9,6 +9,72 @@
   @media(max-width: 1015px){
     background-size: cover;
   }
+   @media (max-width: 768px) {
+    background-position-y: -350px;
+
+  }
+
+  @media (max-width: 690px) {
+    background-position-y: -230px;
+
+  }
+  @media (max-width: 575px) {
+    background-position-y: -350px;
+
+  }
+  @media (max-width: 550px) {
+    background-position-y: -280px;
+
+  }
+   @media (max-width: 500px) {
+    background-position-y: -220px;
+
+  }
+  @media (max-width: 495px) {
+    background-position-y: -200px;
+
+  }
+
+  @media (max-width: 460px) {
+    background-position-y: -130px;
+
+
+  }
+  @media (max-width: 450px) {
+    background-position-y: -130px;
+
+
+  }
+  @media (max-width: 446px) {
+    background-position-y: -150px;
+
+  }
+  @media (max-width: 425px) {
+    background-position-y: -90px;
+
+  }
+  @media (max-width: 410px) {
+    background-position-y: -30px;
+
+  }
+  @media (max-width: 355px) {
+    background-position-y: -10px;
+    background-position-x: -10px;
+
+  }
+  @media (max-width: 340px) {
+    background-position-y: -10px;
+    background-position-x: -30px;
+
+  }
+  @media (max-width: 320px) {
+    background-position-y: -10px;
+    background-position-x: -30px;
+
+  }
+
+
+
 
   @include lg {
     height: 1275px;
@@ -30,7 +96,6 @@
       @include xl {
         padding-top: 200px;
       }
-
       @include lg {
         padding-top: 150px;
         left: 30px;

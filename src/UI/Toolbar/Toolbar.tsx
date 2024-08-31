@@ -60,6 +60,11 @@ const Toolbar = () => {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    console.log(open)
+  }, [open]);
+
+
   // Determine the class for header
   const headerClass = () => {
     let classNames = '';
@@ -108,7 +113,7 @@ const Toolbar = () => {
                   <img
                     src="/assets/toolbar/close-menu.svg"
                     alt="Close"
-                    onClick={() => setOpen(!open)}
+                    onClick={() => setOpen(false)}
                   />
                 ) : (
                   <img src="/assets/toolbar/menu.svg" alt="Menu" onClick={() => setOpen(true)} />
