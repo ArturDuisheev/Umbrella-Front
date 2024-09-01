@@ -13,7 +13,9 @@ const Founders = () => {
   const dispatch = useAppDispatch();
   const founders = useAppSelector(selectFounders);
 
+
   useEffect(() => {
+
     dispatch(fetchFounders());
   }, [dispatch]);
 
@@ -35,7 +37,6 @@ const Founders = () => {
             nextEl: '.mySwiper__btns__next',
             prevEl: '.mySwiper__btns__prev',
           }}
-          loop={true}
           modules={[Pagination, Navigation]}
           style={{ overflow: 'visible' }}
           className="mySwiper"
