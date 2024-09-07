@@ -5,6 +5,11 @@ export interface Portfolio {
   image: string;
 }
 
+export interface BackUpLoader {
+  main_page_image: string;
+  about_us_image: string;
+}
+
 export interface Review {
   id: number;
   avatar: string;

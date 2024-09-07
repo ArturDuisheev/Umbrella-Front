@@ -12,6 +12,10 @@ interface Props {
 const Accordion: React.FC<Props> = ({ index, title, list, isOpen, onClick }) => {
   const [open, setOpen] = useState<boolean>(index === 1);
 
+  const formatList = (item: string) => {
+    return item.split(';').map((subItem) => subItem.trim());
+  };
+
   return (
     <div className="accordion-block">
       <div className={isOpen ? 'active accordion' : 'accordion'} onClick={onClick}>
@@ -24,11 +28,13 @@ const Accordion: React.FC<Props> = ({ index, title, list, isOpen, onClick }) => 
         {isOpen && (
           <div className="card-wrapper">
             <ul className="card-wrapper-list">
-              {list.map((item, index) => (
-                <li key={index} className="card-wrapper-list-item">
-                  {item}
-                </li>
-              ))}
+              {list.map((item, idx) =>
+                formatList(item).map((subItem, subIdx) => (
+                  <li key={`${idx}-${subIdx}`} className="card-wrapper-list-item">
+                     {subItem}
+                  </li>
+                ))
+              )}
             </ul>
           </div>
         )}

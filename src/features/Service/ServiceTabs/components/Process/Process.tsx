@@ -9,16 +9,13 @@ const Process: FC<any> = ({ processes }) => {
   const handleAccordionClick = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+  console.log(processes)
 
   return (
     <section className="process">
       <div className="container">
-        <div className="process-info">
-          <h4 className="process-info-title">Процесс</h4>
-          <p className="process-info-text">
-            Вы прозрачно отслеживаете весь процесс, и до последних копеек знаете, куда направляется
-            ваш бюджет
-          </p>
+     <div className="process-info">
+       
         </div>
         <div className="process-steps">
           {processes?.map((accordion: any, i: any) => (

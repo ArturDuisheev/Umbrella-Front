@@ -37,14 +37,14 @@
 
     &-info {
       max-width: 1150px;
-      margin: 200px auto;
+      margin: 70px auto;
 
       @include lg {
-        margin: 150px auto;
+        margin: 70px auto;
       }
 
       @include md {
-        margin: 100px auto;
+        margin: 50px auto;
       }
 
       &-title {

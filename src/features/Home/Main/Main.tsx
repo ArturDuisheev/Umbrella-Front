@@ -1,7 +1,10 @@
 import React from 'react';
+
 import FormLink from '@/components/FormLink/FormLink';
 import './Main.scss';
 import Background from '@/UI/Background/Background';
+
+
 
 const Main = () => {
   const bannerLink = `url("/assets/main-img.jpeg")`;

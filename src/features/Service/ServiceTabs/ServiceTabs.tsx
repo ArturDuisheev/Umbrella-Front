@@ -44,7 +44,6 @@ const ServiceTabs: React.FC<any> = ({ tabs, activeTab }) => {
       'aria-controls': `scrollable-auto-tabpanel-${index}`,
     };
   }
-
   return (
     <div className="service-tabs">
       <div className="service-tabs-content">
