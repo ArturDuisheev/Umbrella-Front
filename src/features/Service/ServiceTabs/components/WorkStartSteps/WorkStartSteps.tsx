@@ -12,7 +12,7 @@ const WorkStartSteps: FC<any> = ({ steps }) => {
         ))}
       </div>
       <div className="start">
-        <h4 className="start-title">Начните путь к успеху с командой профессионалов!</h4>
+        <h4 className="start-title">Готовы к результатам?<br></br> Мы готовы к действию!</h4>
       </div>
     </section>
   );
