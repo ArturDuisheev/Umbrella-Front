@@ -85,20 +85,20 @@
 
     &-name {
       font-weight: 600;
-      font-size: 48px;
+      font-size: 62px;
       line-height: 115%;
       color: $neutral-01;
-
+      text-align: center;
       @include xxl {
-        font-size: 44px;
+        font-size: 52px;
       }
 
       @include xl {
-        font-size: 36px;
+        font-size: 48px;
       }
 
       @include sm {
-        font-size: 24px;
+        font-size: 39px;
       }
     }
 
