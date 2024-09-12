@@ -65,6 +65,7 @@
 
   &-specialists {
     display: flex;
+
     gap: 20px;
 
     @include md {
@@ -88,6 +89,9 @@
       border-radius: 48px;
       padding: 16px 24px;
       background-color: $primary-07;
+      display:flex;
+          justify-content: center;
+    align-items:center;
 
       @include xl {
         font-size: 22px;
