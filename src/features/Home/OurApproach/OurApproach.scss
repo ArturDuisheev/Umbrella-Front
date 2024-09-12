@@ -219,21 +219,27 @@
         @include xl {
           width: 310px;
           height: 310px;
-          margin-bottom: 46px;
+
 
         }
 
         @include lg {
           width: 410px;
           height: 410px;
-          margin-bottom: 46px;
+          margin-bottom: 221px;
 
         }
         @include sm {
-          width: 310px;
-          height: 310px;
-          margin-bottom: 46px;
+          width: 314px;
+          height: 312px;
+          margin-bottom: 88px;
 
+
+        }
+        @include md {
+          width: 314px;
+          height: 312px;
+          margin-bottom: 215px;
         }
       }
     }
