@@ -118,7 +118,7 @@ const NavList: React.FC<any> = ({
           </Link>
         </li>
         <li className="list">
-          <Link href="/#our-approach" onClick={handleItemClick}>
+          <Link href="#our-approach" onClick={handleItemClick}>
             Наш подход
           </Link>
         </li>

@@ -14,7 +14,7 @@ const Services = () => {
   }, [dispatch]);
 
   return (
-    <section className="services">
+    <section className="services" id='services_ap'>
       <div className="services-content container">
         <h3 className="services-content-title">Услуги</h3>
         <div className="services-content-lists">
