@@ -9,16 +9,17 @@ const Process: FC<any> = ({ processes }) => {
   const handleAccordionClick = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-  console.log(processes)
+
+  if (!processes || processes.length === 0) {
+    return null;
+  }
 
   return (
     <section className="process">
       <div className="container">
-     <div className="process-info">
-       
-        </div>
+        <div className="process-info"></div>
         <div className="process-steps">
-          {processes?.map((accordion: any, i: any) => (
+          {processes.map((accordion: any, i: any) => (
             <Accordion
               key={i}
               index={i + 1}
