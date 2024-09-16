@@ -17,7 +17,7 @@ const FooterTop = () => {
         </div>
 
         <div className="footer-top-right">
-          <p className="footer-top-right-title">Наши менеджеры ответят вам в течение 15 минут</p>
+          <p className="footer-top-right-title">Наши менеджеры свяжутся с вами в ближайшее время</p>
           <div className="footer-top-right-form">
             <FooterForm />
           </div>

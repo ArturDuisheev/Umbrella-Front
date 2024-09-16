@@ -242,7 +242,7 @@ const FooterForm = () => {
             <label htmlFor="comment">Оставьте комментарий или задайте вопрос</label>
           </div>
 
-          <p className="form-warning">Оставляя заявку вы соглашаетесь на обработку ваших данных</p>
+          <p className="form-warning">Оставляя заявку, вы соглашаетесь на обработку ваших данных</p>
           <button
               className={`form-button ${loading ? 'loading' : ''}`}
               type="submit"
