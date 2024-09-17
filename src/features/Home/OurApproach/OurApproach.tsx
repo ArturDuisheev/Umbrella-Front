@@ -18,7 +18,7 @@ const OurApproach = () => {
             которые эффективно и правильно адресуют нужную коммуникацию.</b>
 
           </p>
-          <Link href={'/about-us'} className="more-about-umbrella">
+          <Link href={'https://umbrella.com.kz/service/5/6'} className="more-about-umbrella">
             Подробнее о “Зонтичном решении”
             <div className="form-link-btn-wrapper-arrow">
               <svg
