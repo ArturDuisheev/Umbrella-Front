@@ -2,7 +2,6 @@
 @use '../../styles/variables' as *;
 
 .banner {
-  padding: 50px;
   height: 950px;
   background-repeat: no-repeat;
   background-size: 120%;
@@ -47,7 +46,7 @@
 
   }
   @media (max-width: 446px) {
-    background-position-y: -150px;
+    background-position-y: -86px;
 
   }
   @media (max-width: 425px) {
@@ -116,6 +115,7 @@
         font-weight: 800;
         font-size: 76px;
         max-width: 1010px;
+        padding-top: 50px;
 
         @include xxl {
           font-size: 68px;
@@ -132,6 +132,7 @@
 
         @include md {
           font-size: 50px;
+          padding-top: 9px ;
         }
 
         @include sm {
