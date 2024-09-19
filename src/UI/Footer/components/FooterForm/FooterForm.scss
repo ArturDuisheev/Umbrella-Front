@@ -16,6 +16,7 @@
 
     .input-field {
       position: relative;
+      margin-bottom: 30px; // Увеличьте отступ для лучшего размещения
 
       .text-counter {
         color: var(--Neutral-04, #939192);
@@ -29,109 +30,84 @@
       }
 
       .error-message {
-        color: #d9534f; // Red color for error messages
+        color: #d9534f; // Красный цвет для сообщений об ошибке
         font-size: 14px;
         margin-top: 5px;
       }
     }
 
-    .input-field input {
-      padding: 20px 10px;
-      height: 50px;
-      border: 2px solid rgba(255, 255, 255, 0.18);
-      font-size: 20px;
-      background: $primary-10;
+    input,
+    textarea {
+      width: 100%;
+      padding: 20px 12px;
       border-radius: 4px;
       outline: none;
+      background: $primary-10;
       color: $primary-03;
-      transition: 0.2s;
-      width: 100%;
+      transition: border-color 0.2s, background-color 0.2s;
 
       @include md {
         font-size: 18px;
-        padding: 18px 10px;
+        padding: 18px 12px;
       }
 
       @include sm {
         font-size: 16px;
+        padding: 16px 12px;
       }
 
       @include xs {
-        padding: 12px 10px;
         font-size: 14px;
+        padding: 14px 12px;
       }
     }
 
-    .input-field label {
+    input {
+      height: 50px;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      font-size: 20px;
+
+      &:focus {
+        border-color: $secondary-01;
+        background-color: $primary-10;
+      }
+
+      &:focus ~ label,
+      &:valid ~ label {
+        top: -20px;
+        left: 12px;
+        color: $primary-10;
+        font-size: 16px;
+      }
+    }
+
+    textarea {
+      height: 170px;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      resize: vertical;
+
+      &:focus {
+        outline-color: $secondary-01;
+        background-color: $primary-10;
+      }
+
+      &:focus ~ label,
+      &:valid ~ label {
+        top: -20px;
+        left: 12px;
+        color: $primary-10;
+        font-size: 16px;
+      }
+    }
+
+    label {
       position: absolute;
-      top: 12px;
+      top: 15px;
       left: 18px;
       color: $primary-03;
       font-size: 20px;
       pointer-events: none;
-      transition: 0.2s;
-
-      @include md {
-        top: 15px;
-        font-size: 18px;
-      }
-
-      @include sm {
-        font-size: 16px;
-      }
-
-      @include xs {
-        font-size: 14px;
-      }
-    }
-
-    .input-field input:focus ~ label,
-    .input-field input:valid ~ label {
-      top: -25px;
-      left: 0;
-      color: $primary-10;
-      font-size: 16px;
-    }
-
-    .input-field input:focus {
-      border-color: $secondary-01;
-      background-color: $primary-10;
-    }
-
-    textarea {
-      font-size: 20px;
-      font-family: $font-family;
-      border-radius: 4px;
-      outline: 2px solid rgba(255, 255, 255, 0.18);
-      resize: none;
-      height: 170px;
-      width: 100%;
-      padding: 8px;
-
-      @include md {
-        font-size: 18px;
-      }
-
-      @include sm {
-        font-size: 16px;
-      }
-
-      @include xs {
-        font-size: 14px;
-      }
-    }
-
-    .input-field textarea:focus ~ label,
-    .input-field textarea:valid ~ label {
-      top: -25px;
-      left: 0;
-      color: $primary-10;
-      font-size: 16px;
-    }
-
-    .input-field textarea:focus {
-      outline-color: $secondary-01;
-      background-color: $primary-10;
+      transition: top 0.2s, font-size 0.2s, color 0.2s;
     }
 
     &-warning {
@@ -154,16 +130,7 @@
       }
     }
 
-    .loading {
-      background-color: #5cc3cc;
-    }
-
-    .form-button-load {
-      animation: load 4s infinite;
-      animation-delay: 4s;
-    }
-
-    &-button {
+    .form-button {
       align-self: flex-start;
       cursor: pointer;
       font-size: 24px;
@@ -172,24 +139,18 @@
       border: none;
       border-radius: 4px;
       padding: 18px 24px;
-      gap: 10px;
       display: flex;
       align-items: center;
       transition: background-color 0.3s, cursor 0.3s;
 
       &:hover {
         background-color: lighten($secondary-01, 10%);
-
-        .form-button-arrow {
-          transform: rotate(0deg);
-          transition: transform 0.5s;
-        }
       }
 
       &:disabled {
-        background-color: #d1d1d1; // Light grey for disabled state
+        background-color: #d1d1d1;
         color: #ffffff;
-        cursor: not-allowed; // Cursor indicating the button is disabled
+        cursor: not-allowed;
       }
 
       @include lg {
@@ -214,7 +175,6 @@
       }
 
       &-arrow {
-        display: block;
         width: 28px;
         height: 28px;
         transform: rotate(-45deg);
