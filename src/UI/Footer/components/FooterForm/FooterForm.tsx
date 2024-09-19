@@ -166,6 +166,7 @@ const FooterForm = () => {
                     // padding: '10px',
                     gridTemplateColumns: 'repeat(4, 1fr)',
                     gap: '10px',
+                    textAlign:'center',
                   }),
                   indicatorSeparator: () => ({
                     display: 'none',

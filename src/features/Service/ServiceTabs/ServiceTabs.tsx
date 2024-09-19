@@ -32,7 +32,7 @@ interface Props {
 }
 
 const ServiceTabs: React.FC<any> = ({ tabs, activeTab }) => {
-  const [value, setValue] = React.useState<number>(activeTab ? Number(activeTab) - 1 : 0);
+  const [value, setValue] = React.useState<number>(activeTab ? Number(1) - 1 : 0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);

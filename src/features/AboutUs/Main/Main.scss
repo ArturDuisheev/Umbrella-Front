@@ -2,7 +2,9 @@
 @use '../../../styles/variables' as *;
 
 .about-us-main {
+
   &-banner-xxl {
+    
     display: block; // Default display for XXL screens
 
     @include lg {
@@ -15,6 +17,7 @@
   }
 
   &-banner-lg {
+    padding-top: 200px;
     display: none; // Hidden by default
 
     @include lg {
