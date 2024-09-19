@@ -32,7 +32,7 @@
 
     &-title {
       color: rgb(241, 242, 248);
-      font-size: 48px;
+      font-size: 35px;
       line-height: 115%;
       margin-bottom: 30px;
       font-weight: 500;
@@ -114,10 +114,12 @@
         align-items: center;
         align-content: center;
         gap: 20px;
+        font-size: 27px;
 
 
         @include sm {
           gap: 10px;
+          font-size: 19px;
         }
 
         &-img {
