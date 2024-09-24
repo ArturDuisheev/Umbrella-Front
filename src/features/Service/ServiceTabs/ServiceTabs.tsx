@@ -44,6 +44,7 @@ const ServiceTabs: React.FC<any> = ({ tabs, activeTab }) => {
       'aria-controls': `scrollable-auto-tabpanel-${index}`,
     };
   }
+
   return (
     <div className="service-tabs">
       <div className="service-tabs-content">
@@ -67,12 +68,30 @@ const ServiceTabs: React.FC<any> = ({ tabs, activeTab }) => {
 
         {tabs?.map((data: any, index: number) => (
           <CustomTabPanel key={index} value={value} index={index}>
-            {data.sections?.map((section: any) => {
-              return (
+            {data.sections?.map((section: any, secIndex: number) => {
+              return secIndex === 0 ? (
                 <div className="service-tabs-content-info container" key={section.id}>
                   <h3 className="service-tabs-content-info-title">{section?.title}</h3>
                   <p className="service-tabs-content-info-text">{section?.description}</p>
                 </div>
+              ) : (
+                <section className="our-approach" key={section.id}>
+                  <div className="our-approach-content container">
+                    <div className="our-approach-content-wrapper">
+                      <h3 className="our-approach-content-wrapper-title">{section?.title}</h3>
+                      <p className="our-approach-content-wrapper-text" >
+                        {section?.description}
+                      </p>
+                    </div>
+                    <div className="our-approach-content-img-box">
+                      <img
+                        className="our-approach-content-img-box-img"
+                        src="/assets/home/our-approach/umrella.svg"
+                        alt="Umrella agency"
+                      />
+                    </div>
+                  </div>
+                </section>
               );
             })}
             <div className="process-and-team">
