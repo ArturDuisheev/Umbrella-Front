@@ -75,11 +75,11 @@ const ServiceTabs: React.FC<any> = ({ tabs, activeTab }) => {
                   <p className="service-tabs-content-info-text">{section?.description}</p>
                 </div>
               ) : (
-                <section className="our-approach" key={section.id}>
+                <section className="our-approach" key={section.id} style={{ marginBottom: '100px' }}>
                   <div className="our-approach-content container">
                     <div className="our-approach-content-wrapper">
                       <h3 className="our-approach-content-wrapper-title">{section?.title}</h3>
-                      <p className="our-approach-content-wrapper-text" >
+                      <p className="our-approach-content-wrapper-text">
                         {section?.description}
                       </p>
                     </div>
@@ -95,7 +95,7 @@ const ServiceTabs: React.FC<any> = ({ tabs, activeTab }) => {
               );
             })}
             <div className="process-and-team">
-              <Process processes={data.processes} />
+            <Process processes={data.processes} />
               <Team team={data.team} />
               <WorkStartSteps steps={data?.before_start_job} />
             </div>
