@@ -34,16 +34,6 @@ const NavList: React.FC<any> = ({
     dispatch(fetchServices());
   }, []);
 
-  const dropdownData = services.map((service) => {
-    return {
-      title: service.title,
-      list: service.category?.map((tab) => {
-        return { title: tab.title, id: tab.id };
-      }),
-      id: service.id,
-    };
-  });
-
   const handleItemClick = () => {
     setOpen(false);
     setIsHovered(false);
@@ -96,19 +86,22 @@ const NavList: React.FC<any> = ({
                 openServices ? `service-list-mobile-visible` : `service-list-mobile-hidden`
               }`}
             >
-              <ServiceListMobile openServices={handleCloseServices} services={dropdownData} />
+              <ServiceListMobile openServices={handleCloseServices} services={services} />
             </div>
           )}
           {!isMobile && open && (
             <div className={open ? 'dropdown active' : 'dropdown'} ref={ref}>
-              {dropdownData.map((item, index) => (
-                <div className="dropdown-section">
-                  <Link href={'/service/' + item.id + '/' + '1'}>
-                    <h6 className="dropdown-title">{item?.title}</h6>
-                  </Link>
-                  <DropdownList key={index} list={item.list} id={item.id} />
-                </div>
-              ))}
+              {services.map((item, index) => {
+                const matchFirstTab = item.category[0]
+                return (
+                  <div className="dropdown-section">
+                    <Link href={`/service/${item.id}/${matchFirstTab.id}`}>
+                      <h6 className="dropdown-title">{item?.title}</h6>
+                    </Link>
+                    <DropdownList key={index} list={item.category} id={item.id} />
+                  </div>
+                );
+              })}
             </div>
           )}
         </li>

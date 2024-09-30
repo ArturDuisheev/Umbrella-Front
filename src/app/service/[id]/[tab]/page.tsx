@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Услуги',
 };
 
-const Service: FC<{ params: { id: string } }> = ({ params }) => {
+const Service: FC<{ params: { id: string, tab: string } }> = async ({ params }) => {
   return <ServicePage params={params} />;
 };
 

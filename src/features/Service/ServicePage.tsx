@@ -6,8 +6,13 @@ import Footer from '@/UI/Footer/Footer';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { selectServicePage } from '@/features/Service/serviceSlice';
 import { fetchServicePage } from '@/features/Service/serviceThunk';
+import { ParamsPageService } from '../../../types';
 
-const ServicePage: FC<any> = ({ params }) => {
+type Props = {
+  params: ParamsPageService;
+};
+
+const ServicePage: FC<Props> = ({ params }) => {
   const dispatch = useAppDispatch();
   const servicePage = useAppSelector(selectServicePage).filter(
     (service) => service?.id === Number(params.id),
@@ -24,7 +29,10 @@ const ServicePage: FC<any> = ({ params }) => {
         short_description_for_banner={servicePage[0]?.short_description_for_banner}
         gif={servicePage[0]?.gif}
       />
-      <ServiceTabs tabs={servicePage[0]?.tabs as any} activeTab={params.tab} />
+      {/* 
+      TODO: Refactor types
+      @ts-ignore */}
+      <ServiceTabs tabs={servicePage[0]?.tabs} params={params} />
       <Footer />
     </>
   );

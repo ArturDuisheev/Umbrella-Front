@@ -73,17 +73,21 @@ interface BeforeStartJob {
   id: number;
   title: string;
   description: string;
-
 }
 
-interface Tab {
+export type TabProps = {
   id: number;
   title: string;
   sections: Section[];
   processes: Process[];
-  portfolios: Portfolio[];
+  portfolios: Portfolio[]; 
   before_start_job: BeforeStartJob[];
   team: TeamMember[];
+  steps: {
+    description: string;
+    id: number;
+    title: string;
+  };
 }
 
 interface ServicePage {
@@ -92,4 +96,9 @@ interface ServicePage {
   gif: string;
   short_description_for_banner: string;
   tabs: Tab[];
+}
+
+export type ParamsPageService = {
+  id: string;
+  tab: string;
 }

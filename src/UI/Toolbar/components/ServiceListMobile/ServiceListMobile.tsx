@@ -1,8 +1,14 @@
-import { FC } from 'react';
+import { Dispatch, FC, SetStateAction } from 'react';
 import style from './ServiceList.module.scss';
 import Link from 'next/link';
+import { Service } from '../../../../../types';
 
-const ServiceListMobile: FC<any> = ({ openServices, services }) => {
+type Props = {
+  services: Service[]
+  openServices: any
+}
+
+const ServiceListMobile: FC<Props> = ({ openServices, services }) => {
   return (
     <div className={style.wrapper}>
       <img
@@ -30,20 +36,23 @@ const ServiceListMobile: FC<any> = ({ openServices, services }) => {
         Услуги
       </div>
       <ul className={style.list}>
-        {services?.map((serv: any) => (
-          <li>
-            <Link href={'/service/' + serv.id + '/' + '1'} className={style.title}>
-              {serv.title}
-            </Link>
-            <ul className={style.list}>
-              {serv.list.map((item: any) => (
-                <Link href={'/service/' + serv.id + '/' + item.id} className={style.tab}>
-                  {item.title}
-                </Link>
-              ))}
-            </ul>
-          </li>
-        ))}
+        {services?.map((serv) => {
+          const matchFirstTab = serv.category[0]
+          return (
+            <li key={serv.id}>
+              <Link href={`/service/${serv.id}/${matchFirstTab.id}`} className={style.title}>
+                {serv.title}
+              </Link>
+              <ul className={style.list}>
+                {serv.category.map((item: any) => (
+                  <Link href={`/service/${serv.id}/${item.id}`} className={style.tab}>
+                    {item.title}
+                  </Link>
+                ))}
+              </ul>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
