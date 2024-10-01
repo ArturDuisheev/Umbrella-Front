@@ -25,7 +25,6 @@ interface Props {
 
 const ServiceTabs: React.FC<Props> = ({ tabs, params }) => {
   const useRouterAPI = useRouter();
-
   const [selectedTabId, setSelectedTabId] = React.useState<string>('');
   const [selectedTab, setSelectedTab] = React.useState<TabProps | null>(null);
 
@@ -70,16 +69,15 @@ const ServiceTabs: React.FC<Props> = ({ tabs, params }) => {
                 scrollButtons="auto"
                 allowScrollButtonsMobile={false}
               >
-                {tabs?.map((tab: TabProps) => {
-                  return (
-                    <Tab
-                      {...a11yProps(tab.id)}
-                      id={`${tab.id}`}
-                      value={`${tab.id}`}
-                      label={tab.title}
-                    />
-                  );
-                })}
+                {tabs?.map((tab: TabProps) => (
+                  <Tab
+                    {...a11yProps(tab.id)}
+                    id={`${tab.id}`}
+                    value={`${tab.id}`}
+                    label={tab.title}
+                    key={tab.id} // Added key here for unique identification
+                  />
+                ))}
               </Tabs>
             </Box>
           </div>
@@ -88,32 +86,48 @@ const ServiceTabs: React.FC<Props> = ({ tabs, params }) => {
         {!selectedTab ? null : (
           <CustomTabPanel value={selectedTabId} index={`${selectedTabId}`}>
             {selectedTab.sections?.map((section: any, secIndex: number) => {
-              return secIndex === 0 ? (
-                <div className="service-tabs-content-info container" key={section.id}>
-                  <h3 className="service-tabs-content-info-title">{section?.title}</h3>
-                  <p className="service-tabs-content-info-text">{section?.description}</p>
-                </div>
-              ) : (
-                <section
-                  className="our-approach"
-                  key={section.id}
-                  style={{ marginBottom: '100px' }}
-                >
-                  <div className="our-approach-content container">
-                    <div className="our-approach-content-wrapper">
-                      <h3 className="our-approach-content-wrapper-title">{section?.title}</h3>
-                      <p className="our-approach-content-wrapper-text">{section?.description}</p>
-                    </div>
-                    <div className="our-approach-content-img-box">
-                      <img
-                        className="our-approach-content-img-box-img"
-                        src="/assets/home/our-approach/umrella.svg"
-                        alt="Umrella agency"
-                      />
-                    </div>
+              if (secIndex === 0) {
+                // First element
+                return (
+                  <div className="service-tabs-content-info container" key={section.id}>
+                    <h3 className="service-tabs-content-info-title">{section?.title}</h3>
+                    <p className="service-tabs-content-info-text">{section?.description}</p>
                   </div>
-                </section>
-              );
+                );
+              } else if (secIndex === 1) {
+                // Second element
+                return (
+                  <section
+                    className="our-approach"
+                    key={section.id}
+                    style={{ marginBottom: '100px' }}
+                  >
+                    <div className="our-approach-content container">
+                      <div className="our-approach-content-wrapper">
+                        <h3 className="our-approach-content-wrapper-title">{section?.title}</h3>
+                        <p className="our-approach-content-wrapper-text">{section?.description}</p>
+                      </div>
+                      <div className="our-approach-content-img-box">
+                        <img
+                          className="our-approach-content-img-box-img"
+                          src="/assets/home/our-approach/umrella.svg"
+                          alt="Umrella agency"
+                        />
+                      </div>
+                    </div>
+                  </section>
+                );
+              } else if (secIndex === 2) {
+                // Third element - repeat the first element
+                const firstSection = selectedTab.sections[0];
+                return (
+                  <div className="service-tabs-content-info container" key={firstSection.id}>
+                    <h3 className="service-tabs-content-info-title">{firstSection?.title}</h3>
+                    <p className="service-tabs-content-info-text">{firstSection?.description}</p>
+                  </div>
+                );
+              }
+              return null; // Handle any unexpected case
             })}
             <div className="process-and-team">
               <Process processes={selectedTab.processes} />
