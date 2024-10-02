@@ -75,7 +75,7 @@ const ServiceTabs: React.FC<Props> = ({ tabs, params }) => {
                     id={`${tab.id}`}
                     value={`${tab.id}`}
                     label={tab.title}
-                    key={tab.id} // Added key here for unique identification
+                    key={tab.id} // Добавлен ключ для уникальной идентификации
                   />
                 ))}
               </Tabs>
@@ -87,7 +87,7 @@ const ServiceTabs: React.FC<Props> = ({ tabs, params }) => {
           <CustomTabPanel value={selectedTabId} index={`${selectedTabId}`}>
             {selectedTab.sections?.map((section: any, secIndex: number) => {
               if (secIndex === 0) {
-                // First element
+                // Первая секция: обычный текст
                 return (
                   <div className="service-tabs-content-info container" key={section.id}>
                     <h3 className="service-tabs-content-info-title">{section?.title}</h3>
@@ -95,7 +95,7 @@ const ServiceTabs: React.FC<Props> = ({ tabs, params }) => {
                   </div>
                 );
               } else if (secIndex === 1) {
-                // Second element
+                // Вторая секция: Our Approach с изображением зонтика
                 return (
                   <section
                     className="our-approach"
@@ -111,23 +111,21 @@ const ServiceTabs: React.FC<Props> = ({ tabs, params }) => {
                         <img
                           className="our-approach-content-img-box-img"
                           src="/assets/home/our-approach/umrella.svg"
-                          alt="Umrella agency"
+                          alt="Umbrella agency"
                         />
                       </div>
                     </div>
                   </section>
                 );
-              } else if (secIndex === 2) {
-                // Third element - repeat the first element
-                const firstSection = selectedTab.sections[0];
+              } else {
+                // Остальные секции: стилизованы как первая секция, но с их данными
                 return (
-                  <div className="service-tabs-content-info container" key={firstSection.id}>
-                    <h3 className="service-tabs-content-info-title">{firstSection?.title}</h3>
-                    <p className="service-tabs-content-info-text">{firstSection?.description}</p>
+                  <div className="service-tabs-content-info container" key={section.id}>
+                    <h3 className="service-tabs-content-info-title">{section?.title}</h3>
+                    <p className="service-tabs-content-info-text">{section?.description}</p>
                   </div>
                 );
               }
-              return null; // Handle any unexpected case
             })}
             <div className="process-and-team">
               <Process processes={selectedTab.processes} />
