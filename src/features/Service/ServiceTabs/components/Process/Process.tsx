@@ -3,11 +3,15 @@ import React, { FC, useState } from 'react';
 import Accordion from '@/features/Service/ServiceTabs/components/Process/components/Accordion/Accordion';
 import './Process.scss';
 
-const Process: FC<any> = ({ processes }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+interface ProcessProps {
+  processes: { id: number; title: string; description: string }[];
+}
 
-  const handleAccordionClick = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+const Process: FC<ProcessProps> = ({ processes }) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleAccordionClick = (id: number) => {
+    setOpenIndex(openIndex === id ? null : id);
   };
 
   if (!processes || processes.length === 0) {
@@ -19,14 +23,14 @@ const Process: FC<any> = ({ processes }) => {
       <div className="container">
         <div className="process-info"></div>
         <div className="process-steps">
-          {processes.map((accordion: any, i: any) => (
+          {processes.map((accordion) => (
             <Accordion
-              key={i}
-              index={i + 1}
+              key={accordion.id} // Используем уникальный id вместо индекса
+              index={accordion.id} // Передаем id как индекс
               title={accordion.title}
               list={[accordion.description]}
-              isOpen={openIndex === i}
-              onClick={() => handleAccordionClick(i)}
+              isOpen={openIndex === accordion.id}
+              onClick={() => handleAccordionClick(accordion.id)} // Используем id для управления состоянием
             />
           ))}
         </div>

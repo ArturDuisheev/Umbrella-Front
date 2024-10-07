@@ -46,13 +46,14 @@ const FooterForm = () => {
 
     try {
       setLoading(true);
+      // Отправляем форму, не проверяя обязательность поля review
       await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/form/create/`, formData);
       toast.success('Форма успешно отправлена!');
       setFormData({
         name: '',
         number_or_email: '',
         service_titles: [],
-        review: '',
+        review: '', // Сбрасываем поле review после отправки
       });
       router.push('?=thank-you');
     } catch (error: any) {
@@ -163,7 +164,6 @@ const FooterForm = () => {
                     ...styles,
                     width: '100%',
                     display: 'grid',
-                    // padding: '10px',
                     gridTemplateColumns: 'repeat(4, 1fr)',
                     gap: '10px',
                     textAlign:'center',
@@ -232,13 +232,13 @@ const FooterForm = () => {
           </div>
 
           <div className="input-field">
-          <textarea
-              value={formData.review}
-              name="comment"
-              id="comment"
-              required
-              onChange={(e) => handleChange('review', e.target.value)}
-          />
+            <textarea
+                value={formData.review}
+                name="comment"
+                required={false}
+                id="comment"
+                onChange={(e) => handleChange('review', e.target.value)}
+            />
             <p className="text-counter">{`${formData.review.length}/550`}</p>
             <label htmlFor="comment">Оставьте комментарий или задайте вопрос</label>
           </div>
