@@ -71,11 +71,11 @@ const ServiceTabs: React.FC<Props> = ({ tabs, params }) => {
               >
                 {tabs?.map((tab: TabProps) => (
                   <Tab
-                    {...a11yProps(tab.id)}
+                    {...a11yProps(tab.id) }
                     id={`${tab.id}`}
                     value={`${tab.id}`}
                     label={tab.title}
-                    key={tab.id}
+                    key={tab.id} // Добавлен ключ для уникальной идентификации
                   />
                 ))}
               </Tabs>
@@ -85,50 +85,48 @@ const ServiceTabs: React.FC<Props> = ({ tabs, params }) => {
 
         {!selectedTab ? null : (
           <CustomTabPanel value={selectedTabId} index={`${selectedTabId}`}>
-            {selectedTab.sections
-              ?.sort((a, b) => a.order - b.order) // Сортировка секций по полю order
-              .map((section: any, secIndex: number) => {
-                if (secIndex === 0) {
-                  // Первая секция: обычный текст
-                  return (
-                    <div className="service-tabs-content-info container" key={section.id}>
-                      <h3 className="service-tabs-content-info-title">{section?.title}</h3>
-                      <p className="service-tabs-content-info-text">{section?.description}</p>
-                    </div>
-                  );
-                } else if (secIndex === 1) {
-                  // Вторая секция: Our Approach с изображением зонтика
-                  return (
-                    <section
-                      className="our-approach"
-                      key={section.id}
-                      style={{ marginBottom: '100px' }}
-                    >
-                      <div className="our-approach-content container">
-                        <div className="our-approach-content-wrapper">
-                          <h3 className="our-approach-content-wrapper-title">{section?.title}</h3>
-                          <p className="our-approach-content-wrapper-text">{section?.description}</p>
-                        </div>
-                        <div className="our-approach-content-img-box">
-                          <img
-                            className="our-approach-content-img-box-img"
-                            src="/assets/home/our-approach/umrella.svg"
-                            alt="Umbrella agency"
-                          />
-                        </div>
+            {selectedTab.sections?.map((section: any, secIndex: number) => {
+              if (secIndex === 0) {
+                // Первая секция: обычный текст
+                return (
+                  <div className="service-tabs-content-info container" key={section.id}>
+                    <h3 className="service-tabs-content-info-title">{section?.title}</h3>
+                    <p className="service-tabs-content-info-text">{section?.description}</p>
+                  </div>
+                );
+              } else if (secIndex === 1) {
+                // Вторая секция: Our Approach с изображением зонтика
+                return (
+                  <section
+                    className="our-approach"
+                    key={section.id}
+                    style={{ marginBottom: '100px' }}
+                  >
+                    <div className="our-approach-content container">
+                      <div className="our-approach-content-wrapper">
+                        <h3 className="our-approach-content-wrapper-title">{section?.title}</h3>
+                        <p className="our-approach-content-wrapper-text">{section?.description}</p>
                       </div>
-                    </section>
-                  );
-                } else {
-                  // Остальные секции: стилизованы как первая секция, но с их данными
-                  return (
-                    <div className="service-tabs-content-info container" key={section.id}>
-                      <h3 className="service-tabs-content-info-title">{section?.title}</h3>
-                      <p className="service-tabs-content-info-text">{section?.description}</p>
+                      <div className="our-approach-content-img-box">
+                        <img
+                          className="our-approach-content-img-box-img"
+                          src="/assets/home/our-approach/umrella.svg"
+                          alt="Umbrella agency"
+                        />
+                      </div>
                     </div>
-                  );
-                }
-              })}
+                  </section>
+                );
+              } else {
+                // Остальные секции: стилизованы как первая секция, но с их данными
+                return (
+                  <div className="service-tabs-content-info container" key={section.id}>
+                    <h3 className="service-tabs-content-info-title">{section?.title}</h3>
+                    <p className="service-tabs-content-info-text">{section?.description}</p>
+                  </div>
+                );
+              }
+            })}
             <div className="process-and-team">
               <Process processes={selectedTab.processes} />
               <Team team={selectedTab.team} />

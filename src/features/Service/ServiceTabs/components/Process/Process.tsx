@@ -23,10 +23,10 @@ const Process: FC<ProcessProps> = ({ processes }) => {
       <div className="container">
         <div className="process-info"></div>
         <div className="process-steps">
-          {processes.map((accordion) => (
+          {processes.map((accordion, i: any) => (
             <Accordion
               key={accordion.id} // Используем уникальный id вместо индекса
-              index={accordion.id} // Передаем id как индекс
+              index={i + 1} // Передаем id как индекс
               title={accordion.title}
               list={[accordion.description]}
               isOpen={openIndex === accordion.id}
