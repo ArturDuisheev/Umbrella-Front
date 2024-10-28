@@ -1,5 +1,5 @@
 'use client';
-import React, { FC, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import Accordion from '@/features/Service/ServiceTabs/components/Process/components/Accordion/Accordion';
 import './Process.scss';
 
@@ -47,3 +47,5 @@ const Process: FC<ProcessProps> = ({ processes }) => {
 };
 
 export default Process;
+
+

@@ -56,6 +56,14 @@ const ServiceTabs: React.FC<Props> = ({ tabs, params }) => {
     }
   }, [tabs, selectedTabId, params]);
 
+const sortedSections = useMemo(() => {
+  return selectedTab?.sections
+    ? [...selectedTab.sections].sort((a, b) => a.order - b.order)
+    : [];
+}, [selectedTab]);
+  // console.log(sortedSections, 'fhf')
+  // console.log(selectedTab?.sections,"blyaaa")
+
   return (
     <div className="service-tabs">
       <div className="service-tabs-content">
